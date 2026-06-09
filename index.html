@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>document.documentElement.classList.add('js')</script>
+<title>Premier Local · N°1 français du référencement pour les artisans</title>
+<meta name="description" content="Premier Local est le n°1 français du référencement pour les artisans du bâtiment. On vous rend premier sur Google et premier appelé. Sans engagement. Un point avec vous chaque mois." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#091622;--navy:#0c2031;--navy-2:#123249;--muted:#5d7385;--line:#e6ecf1;
+  --bg:#ffffff;--cream:#fbf7ef;--soft:#f4f7fa;--gold:#f0b13c;--gold-d:#d8951a;
+  --gold-grad:linear-gradient(135deg,#f6c053,#e29318);--navy-grad:linear-gradient(150deg,#0c2031,#15405f);
+  --shadow-s:0 2px 10px rgba(9,22,34,.06);--shadow-m:0 16px 44px -14px rgba(9,22,34,.22);--shadow-l:0 44px 90px -34px rgba(9,22,34,.40);
+  --r:18px;--r-s:12px;--maxw:1180px;--ease:cubic-bezier(.22,.61,.36,1);
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Sora',sans-serif;line-height:1.08;letter-spacing:-.02em}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.gold-text{background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-d)}
+.eyebrow::before{content:"";width:24px;height:2px;background:var(--gold-grad);border-radius:2px}
+.eyebrow.light{color:var(--gold)}
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:.96rem;padding:14px 26px;border-radius:100px;cursor:pointer;border:none;transition:.35s var(--ease);white-space:nowrap}
+.btn svg{width:18px;height:18px}
+.btn-primary{background:var(--gold-grad);color:#3a2400;box-shadow:0 12px 26px -10px rgba(216,149,26,.7)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 20px 34px -10px rgba(216,149,26,.8)}
+.btn-ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line);box-shadow:var(--shadow-s)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold-d);transform:translateY(-3px)}
+
+/* header */
+.header{position:fixed;top:0;left:0;right:0;z-index:100;transition:.4s var(--ease)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:22px;margin:14px auto;max-width:calc(var(--maxw) + 40px);padding:9px 12px 9px 18px;background:rgba(255,255,255,.72);backdrop-filter:blur(18px) saturate(160%);border:1px solid rgba(255,255,255,.6);border-radius:100px;box-shadow:var(--shadow-m);transition:.4s var(--ease)}
+.header.scrolled .header-inner{margin-top:8px;background:rgba(255,255,255,.93)}
+.brand{display:flex;align-items:center;gap:11px;font-family:'Sora';font-weight:800;font-size:1.06rem}
+.brand .mark{width:40px;height:40px;border-radius:11px;background:var(--navy-grad);display:grid;place-items:center;flex:none;position:relative;box-shadow:var(--shadow-s)}
+.brand .mark svg{width:22px;height:22px;color:var(--gold)}
+.brand .mark::after{content:"1";position:absolute;right:-4px;bottom:-4px;width:18px;height:18px;border-radius:50%;background:var(--gold-grad);color:#3a2400;font-family:'Sora';font-size:.66rem;font-weight:800;display:grid;place-items:center;border:2px solid #fff}
+.brand small{display:block;font-family:'Plus Jakarta Sans';font-weight:600;font-size:.64rem;letter-spacing:.13em;color:var(--muted);text-transform:uppercase}
+.nav{display:flex;align-items:center;gap:2px}
+.nav a{font-weight:600;font-size:.92rem;color:var(--navy-2);padding:9px 13px;border-radius:100px;transition:.25s}
+.nav a:hover{background:var(--soft);color:var(--gold-d)}
+.header-cta{display:flex;align-items:center;gap:10px}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+.burger span{width:24px;height:2.5px;background:var(--ink);border-radius:3px}
+.mobile-menu{position:fixed;inset:0;z-index:99;background:rgba(255,255,255,.98);backdrop-filter:blur(10px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;opacity:0;pointer-events:none;transition:.4s}
+.mobile-menu.open{opacity:1;pointer-events:auto}
+.mobile-menu a{font-family:'Sora';font-weight:700;font-size:1.3rem;padding:10px}
+.mobile-menu .btn-primary{margin-top:16px}
+.mobile-menu .mclose{position:absolute;top:26px;right:28px;font-size:2rem;cursor:pointer}
+
+/* hero */
+.hero{position:relative;padding:172px 0 92px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(1100px 540px at 80% -6%,rgba(240,177,60,.16),transparent 58%),radial-gradient(900px 520px at 6% 18%,rgba(18,50,73,.10),transparent 56%),var(--cream)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center}
+.hero h1{font-size:clamp(2.4rem,5vw,4rem);margin:18px 0 0}
+.hero p.lead{font-size:1.14rem;color:var(--navy-2);margin:22px 0 30px;max-width:540px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:28px}
+.hero-trust{display:flex;flex-direction:column;gap:9px}
+.hero-trust span{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:.92rem;color:var(--navy-2)}
+.hero-trust svg{width:20px;height:20px;color:var(--gold-d);flex:none}
+.hero-visual{position:relative}
+.mock{background:#fff;border-radius:22px;box-shadow:var(--shadow-l);border:1px solid var(--line);overflow:hidden}
+.mock-bar{display:flex;align-items:center;gap:9px;padding:13px 16px;border-bottom:1px solid var(--line);background:var(--soft)}
+.mock-bar .g{font-family:'Sora';font-weight:800;font-size:.9rem}
+.mock-search{flex:1;background:#fff;border:1px solid var(--line);border-radius:100px;padding:7px 14px;font-size:.82rem;color:var(--muted);display:flex;align-items:center;gap:8px}
+.mock-search svg{width:14px;height:14px;color:var(--gold-d)}
+.mock-list{padding:8px}
+.mock-item{display:flex;gap:12px;padding:13px;border-radius:12px;align-items:flex-start}
+.mock-item.win{background:linear-gradient(120deg,rgba(240,177,60,.14),rgba(240,177,60,.05));border:1px solid rgba(240,177,60,.4);position:relative}
+.mock-item .pin{width:38px;height:38px;border-radius:10px;background:var(--navy-grad);display:grid;place-items:center;flex:none}
+.mock-item .pin svg{width:18px;height:18px;color:var(--gold)}
+.mock-item .info b{font-size:.92rem;display:block;font-family:'Sora'}
+.mock-item .stars{color:var(--gold);font-size:.76rem;letter-spacing:1px}
+.mock-item .stars small{color:var(--muted);letter-spacing:0}
+.mock-item .info span.meta{font-size:.76rem;color:var(--muted)}
+.mock-item.win .badge1{position:absolute;top:10px;right:12px;background:var(--gold-grad);color:#3a2400;font-family:'Sora';font-weight:800;font-size:.62rem;padding:3px 9px;border-radius:100px}
+.mock-item.dim{opacity:.5}
+.mock-call{position:absolute;right:-22px;top:30px;background:#fff;border-radius:15px;box-shadow:var(--shadow-m);border:1px solid var(--line);padding:13px 15px;display:flex;align-items:center;gap:11px;animation:floaty 4s ease-in-out infinite}
+.mock-call .ic{width:38px;height:38px;border-radius:50%;background:var(--gold-grad);display:grid;place-items:center;flex:none;color:#3a2400}
+.mock-call .ic svg{width:18px;height:18px}
+.mock-call b{font-size:.84rem;display:block;font-family:'Sora'}
+.mock-call small{font-size:.72rem;color:var(--muted)}
+.mock-review{position:absolute;left:-26px;bottom:24px;background:#fff;border-radius:15px;box-shadow:var(--shadow-m);border:1px solid var(--line);padding:12px 15px;display:flex;align-items:center;gap:11px;animation:floaty 4.6s ease-in-out infinite .5s}
+.mock-review .av{width:34px;height:34px;border-radius:50%;background:var(--navy-grad);color:var(--gold);display:grid;place-items:center;font-family:'Sora';font-weight:800;flex:none}
+.mock-review .stars{color:var(--gold);font-size:.76rem;letter-spacing:1px}
+.mock-review b{font-size:.8rem;font-family:'Sora'}
+@keyframes floaty{50%{transform:translateY(-9px)}}
+
+.section{padding:96px 0}
+.section.cream{background:var(--cream)}
+.section.soft{background:var(--soft)}
+.sec-head{max-width:720px;margin:0 auto 56px;text-align:center}
+.sec-head h2{font-size:clamp(1.9rem,3.6vw,2.7rem);margin:14px 0 0}
+.sec-head p{color:var(--muted);font-size:1.06rem;margin-top:16px}
+
+/* manifesto (dark) */
+.manifesto{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.manifesto::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 340px at 88% 0,rgba(240,177,60,.16),transparent 60%),radial-gradient(620px 320px at 0 100%,rgba(18,50,73,.5),transparent 60%)}
+.manifesto .inner{position:relative}
+.manifesto h2{color:#fff;font-size:clamp(1.9rem,3.8vw,2.8rem);max-width:820px;margin:14px 0 18px}
+.manifesto .lead{color:#aebecb;font-size:1.08rem;max-width:720px;margin-bottom:44px}
+.flips{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.flip{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:26px;transition:.35s var(--ease)}
+.flip:hover{background:rgba(255,255,255,.09);transform:translateY(-5px)}
+.flip .ic{width:46px;height:46px;border-radius:12px;background:var(--gold-grad);display:grid;place-items:center;margin-bottom:16px;color:#3a2400}
+.flip .ic svg{width:22px;height:22px}
+.flip h3{color:#fff;font-size:1.18rem;margin-bottom:8px}
+.flip p{color:#aebecb;font-size:.95rem}
+
+/* pillars */
+.pillars{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.pillar{display:flex;gap:18px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:28px;transition:.35s var(--ease)}
+.pillar:hover{transform:translateY(-5px);box-shadow:var(--shadow-m);border-color:transparent}
+.pillar .ic{width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,rgba(240,177,60,.16),rgba(240,177,60,.06));display:grid;place-items:center;flex:none;color:var(--gold-d)}
+.pillar .ic svg{width:27px;height:27px}
+.pillar h3{font-size:1.16rem;margin-bottom:7px}
+.pillar p{color:var(--muted);font-size:.95rem}
+
+/* offers */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+.tier{background:#fff;border:1.5px solid var(--line);border-radius:20px;padding:30px 26px;display:flex;flex-direction:column;transition:.35s var(--ease)}
+.tier:hover{transform:translateY(-6px);box-shadow:var(--shadow-m)}
+.tier.feat{border-color:var(--gold);box-shadow:0 24px 60px -24px rgba(216,149,26,.4);position:relative}
+.tier.feat::before{content:"LE PLUS CHOISI";position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gold-grad);color:#3a2400;font-family:'Sora';font-weight:800;font-size:.64rem;letter-spacing:.08em;padding:5px 14px;border-radius:100px}
+.tier .tname{font-family:'Sora';font-weight:800;font-size:1.3rem}
+.tier .tfor{color:var(--muted);font-size:.88rem;margin:6px 0 18px;min-height:40px}
+.tier .price{font-family:'Sora';font-weight:800;font-size:2.4rem;line-height:1}
+.tier .price small{font-size:.9rem;color:var(--muted);font-weight:600}
+.tier .ttag{font-size:.8rem;color:var(--gold-d);font-weight:700;margin-top:6px}
+.tier ul{list-style:none;margin:22px 0 24px;display:flex;flex-direction:column;gap:11px;flex:1}
+.tier li{display:flex;gap:10px;align-items:flex-start;font-size:.92rem;font-weight:500;color:var(--navy-2)}
+.tier li svg{width:18px;height:18px;color:var(--gold-d);flex:none;margin-top:2px}
+.tier .btn{width:100%;justify-content:center}
+.offers-note{text-align:center;color:var(--muted);font-size:.92rem;margin-top:26px}
+.offers-note b{color:var(--gold-d)}
+
+/* recruitment */
+.recruit{background:var(--navy-grad);color:#fff;border-radius:26px;overflow:hidden;position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center;padding:48px 50px}
+.recruit::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 100% 0,rgba(240,177,60,.22),transparent 60%)}
+.recruit .inner{position:relative}
+.recruit h2{color:#fff;font-size:clamp(1.7rem,3.2vw,2.4rem);margin:14px 0 16px}
+.recruit p{color:#c4d2dd;font-size:1.04rem;margin-bottom:26px}
+.recruit .badge{position:relative;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:26px;text-align:center}
+.recruit .badge .big{font-family:'Sora';font-weight:800;font-size:2.6rem;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+.recruit .badge p{color:#c4d2dd;font-size:.9rem;margin:10px 0 0}
+.recruit .chans{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.recruit .chans span{font-size:.72rem;font-weight:700;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);padding:5px 11px;border-radius:100px}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:s}
+.step{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:32px 26px;transition:.35s var(--ease)}
+.step:hover{transform:translateY(-5px);box-shadow:var(--shadow-m)}
+.step::before{counter-increment:s;content:counter(s);font-family:'Sora';font-weight:800;font-size:2.4rem;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent;display:block;margin-bottom:12px}
+.step h3{font-size:1.18rem;margin-bottom:8px}
+.step p{color:var(--muted);font-size:.95rem}
+
+/* stats */
+.stats{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.stats::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 300px at 85% 120%,rgba(240,177,60,.2),transparent 60%)}
+.stats-grid{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:54px 0}
+.stat{text-align:center}
+.stat .num{font-family:'Sora';font-weight:800;font-size:clamp(2rem,4vw,3rem);background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+.stat .lbl{color:#aebecb;font-weight:600;font-size:.92rem;margin-top:10px}
+
+/* reviews marquee */
+.rev-marquee{display:flex;flex-direction:column;gap:18px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.rev-track{display:flex;gap:18px;width:max-content;animation:revscroll 46s linear infinite}
+.rev-track.rev2{animation-direction:reverse;animation-duration:54s}
+.rev-marquee:hover .rev-track{animation-play-state:paused}
+@keyframes revscroll{to{transform:translateX(-50%)}}
+.gcard{width:350px;flex:none;background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:var(--shadow-s)}
+.gcard .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.gcard .gi{font-family:'Sora';font-weight:800;font-size:1rem}
+.gcard .stars{color:var(--gold);letter-spacing:1px;font-size:.92rem}
+.gcard p{font-size:.93rem;color:var(--navy-2)}
+.gcard .who{display:flex;align-items:center;gap:11px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+.gcard .av{width:40px;height:40px;border-radius:50%;background:var(--navy-grad);color:var(--gold);display:grid;place-items:center;font-family:'Sora';font-weight:800;flex:none}
+.gcard .who b{font-size:.9rem;display:block}
+.gcard .who small{color:var(--muted);font-size:.78rem}
+
+/* comparison */
+.compare{max-width:840px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow-m)}
+.compare-row{display:grid;grid-template-columns:1.4fr 1fr 1fr;align-items:center}
+.compare-row>div{padding:16px 22px;font-size:.94rem}
+.compare-head>div{font-family:'Sora';font-weight:800;font-size:.95rem}
+.compare-head{background:var(--ink);color:#fff}
+.compare-head .us{color:var(--gold)}
+.compare-row:not(.compare-head){border-top:1px solid var(--line)}
+.compare-row .lbl{font-weight:700;color:var(--navy-2)}
+.compare-row .us{font-weight:700;color:var(--ink);background:rgba(240,177,60,.07)}
+.compare-row .them{color:var(--muted)}
+.compare .yes{color:#0f9d58;font-weight:800}
+.compare .no{color:#c64242;font-weight:700}
+
+/* faq */
+.faq{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:var(--r-s);padding:4px 22px;transition:.3s;box-shadow:var(--shadow-s)}
+.faq details[open]{border-color:var(--gold);box-shadow:var(--shadow-m)}
+.faq summary{list-style:none;cursor:pointer;padding:18px 0;font-family:'Sora';font-weight:700;font-size:1.02rem;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:1.5rem;color:var(--gold-d);transition:.3s;flex:none}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq p{padding:0 0 20px;color:var(--muted);font-size:.96rem}
+
+/* final */
+.final{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.final::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 360px at 50% -10%,rgba(240,177,60,.22),transparent 62%)}
+.final .inner{position:relative;max-width:680px;margin:0 auto;text-align:center}
+.final h2{color:#fff;font-size:clamp(2rem,3.8vw,2.9rem)}
+.final p{color:#aebecb;font-size:1.08rem;margin:16px 0 32px}
+.cta-form{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:18px}
+.cta-form input{flex:1;min-width:150px;padding:13px 16px;border-radius:11px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.05);color:#fff;font-family:inherit;font-size:.94rem}
+.cta-form input::placeholder{color:#8aa0b0}
+.cta-form input:focus{outline:none;border-color:var(--gold)}
+.cta-form .btn{flex:0 0 auto}
+.form-msg{display:none;margin-top:16px;color:var(--gold);font-weight:600}
+.form-msg.show{display:block}
+.final small.note{display:block;margin-top:16px;color:#7e93a3;font-size:.84rem}
+
+/* footer */
+.footer{background:#06121c;color:#8aa0b0;padding:60px 0 26px}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;padding-bottom:38px;border-bottom:1px solid rgba(255,255,255,.08)}
+.foot-brand{display:flex;align-items:center;gap:11px;margin-bottom:14px}
+.foot-brand .mark{width:42px;height:42px;border-radius:11px;background:var(--navy-grad);display:grid;place-items:center;flex:none}
+.foot-brand .mark svg{width:22px;height:22px;color:var(--gold)}
+.foot-brand b{font-family:'Sora';font-size:1.1rem;color:#fff}
+.footer p{font-size:.92rem;max-width:300px}
+.footer h4{color:#fff;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px}
+.footer ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer ul a{font-size:.92rem;transition:.25s}
+.footer ul a:hover{color:var(--gold)}
+.foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:22px;font-size:.84rem}
+.foot-bottom .sig{color:var(--gold)}
+
+.reveal{transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.js .reveal{opacity:0;transform:translateY(28px)}
+.js .reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+
+@media(max-width:980px){
+  .nav{display:none}.burger{display:flex}
+  .hero-grid{grid-template-columns:1fr;gap:54px}
+  .hero-visual{max-width:460px;margin:0 auto}
+  .flips,.pillars,.tiers,.steps{grid-template-columns:1fr 1fr}
+  .stats-grid{grid-template-columns:1fr}
+  .recruit{grid-template-columns:1fr;padding:38px 32px}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .container{padding:0 18px}.section{padding:70px 0}.hero{padding:130px 0 60px}
+  .flips,.pillars,.tiers,.steps{grid-template-columns:1fr}
+  .compare-row{grid-template-columns:1.2fr .9fr .9fr}
+  .compare-row>div{padding:13px 12px;font-size:.84rem}
+  .header-cta .btn-primary{display:none}
+  .header-inner{margin:8px 10px;padding:8px 12px}
+  .brand small{display:none}
+  .gcard{width:290px}
+  .foot-grid{grid-template-columns:1fr}
+  .mock-call{right:-6px}.mock-review{left:-6px}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="#top" class="brand">
+      <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+      <span>Premier Local<small>Référencement artisans</small></span>
+    </a>
+    <nav class="nav">
+      <a href="#offres">Offres</a>
+      <a href="#methode">Comment ça marche</a>
+      <a href="#recrutement">Recrutement</a>
+      <a href="#avis">Avis</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="header-cta">
+      <a href="#contact" class="btn btn-primary">Être rappelé</a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <span class="mclose" id="mclose">&times;</span>
+  <a href="#offres">Offres</a>
+  <a href="#methode">Comment ça marche</a>
+  <a href="#recrutement">Recrutement</a>
+  <a href="#avis">Avis</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contact" class="btn btn-primary">Être rappelé</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow reveal">N°1 français du référencement pour les artisans</span>
+      <h1 class="reveal d1">Premier sur Google.<br><span class="gold-text">Premier appelé.</span></h1>
+      <p class="lead reveal d2">On ne fait que ça : rendre les artisans du bâtiment incontournables sur Google. Plus de visibilité, plus d'appels, plus de devis. Sans engagement, avec un point clair chaque mois.</p>
+      <div class="hero-actions reveal d3">
+        <a href="#contact" class="btn btn-primary">Devenir n°1 dans votre ville
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="#offres" class="btn btn-ghost">Voir les offres</a>
+      </div>
+      <div class="hero-trust reveal d3">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Spécialiste 100 % artisans du bâtiment</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Sans engagement, résiliable au mois</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Un point avec vous chaque mois</span>
+      </div>
+    </div>
+    <div class="hero-visual reveal d2">
+      <div class="mock">
+        <div class="mock-bar">
+          <span class="g"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#0F9D58">l</span><span style="color:#EA4335">e</span></span>
+          <span class="mock-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg> plombier chauffagiste près de chez moi</span>
+        </div>
+        <div class="mock-list">
+          <div class="mock-item win">
+            <span class="badge1">VOUS · N°1</span>
+            <span class="pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div class="info">
+              <b>Votre Entreprise</b>
+              <span class="stars">★★★★★ <small>4,9 (128 avis)</small></span>
+              <span class="meta">Ouvert · Devis gratuit · Rappelle vite</span>
+            </div>
+          </div>
+          <div class="mock-item dim">
+            <span class="pin" style="background:#9fb1bd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div class="info"><b>Un concurrent</b><span class="stars" style="color:#9fb1bd">★★★★☆ <small>4,1 (12 avis)</small></span></div>
+          </div>
+          <div class="mock-item dim">
+            <span class="pin" style="background:#9fb1bd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div class="info"><b>Un autre concurrent</b><span class="stars" style="color:#9fb1bd">★★★★☆ <small>3,8 (7 avis)</small></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="mock-call">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+        <div><b>Nouvel appel</b><small>Demande de devis · Tiercé</small></div>
+      </div>
+      <div class="mock-review">
+        <span class="av">M</span>
+        <div><div class="stars">★★★★★</div><b>+1 avis Google</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto section">
+  <div class="container inner">
+    <span class="eyebrow light reveal">Notre obsession</span>
+    <h2 class="reveal d1">Les premiers en France à ne faire que ça : vous rendre n°1 en local.</h2>
+    <p class="lead reveal d2">Pas une agence web généraliste de plus. Premier Local ne travaille qu'avec des artisans du bâtiment, et n'a qu'une seule mission : faire sonner votre téléphone. On connaît vos métiers, vos clients et vos villes. On sait exactement ce qui vous fait remonter en tête de Google.</p>
+    <div class="flips">
+      <div class="flip reveal">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></svg></span>
+        <h3>100 % artisans</h3>
+        <p>On ne fait que ça. Votre secteur, vos mots-clés, vos zones. On maîtrise mieux que personne.</p>
+      </div>
+      <div class="flip reveal d1">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+        <h3>Obsédés par les appels</h3>
+        <p>Pas de jolis sites pour faire joli. Des demandes de devis dans votre téléphone. C'est tout ce qui compte.</p>
+      </div>
+      <div class="flip reveal d2">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 14 3-3 3 3 5-6"/></svg></span>
+        <h3>Un point chaque mois</h3>
+        <p>On fait le point avec vous, chiffres en main : appels, avis, position sur Google. Vous voyez exactement ce qu'on fait.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section class="section">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow reveal" style="justify-content:center">Ce qu'on fait vraiment</span>
+      <h2 class="reveal d1">On ne vend pas des sites. On fait sonner votre téléphone.</h2>
+      <p class="reveal d2">Un artisan n'a pas besoin d'un beau site. Il a besoin de devis. Tout ce qu'on installe sert ce seul objectif.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar reveal">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+        <div><h3>Une fiche Google qui domine</h3><p>70 % de vos appels viennent de Google Maps, pas de votre site. On optimise votre fiche pour que vous sortiez en tête quand on cherche votre métier près de chez vous.</p></div>
+      </div>
+      <div class="pillar reveal d1">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 2.4 7.4H22l-6 4.5 2.3 7.1-6.3-4.6L5.7 21 8 14 2 9.4h7.6z"/></svg></span>
+        <div><h3>Des avis en continu</h3><p>Après chaque chantier, vos clients sont invités à vous noter. Plus d'avis, plus de confiance, plus haut sur Google. On met le système en place, ça tourne tout seul.</p></div>
+      </div>
+      <div class="pillar reveal">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg></span>
+        <div><h3>Un site qui transforme le clic en appel</h3><p>Rapide, mobile, bouton d'appel partout, formulaire devis, vos photos de chantiers, vos labels. Conçu pour une seule action : vous contacter.</p></div>
+      </div>
+      <div class="pillar reveal d1">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+        <div><h3>Plus aucun appel perdu</h3><p>Sur un toit, vous ratez l'appel ? Un SMS part tout seul : « Je suis en chantier, décrivez votre besoin, je vous rappelle. » Vous récupérez les clients que vous perdiez.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFERS -->
+<section class="section cream" id="offres">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow reveal" style="justify-content:center">Les offres</span>
+      <h2 class="reveal d1">Trois formules. Vous montez quand vous voulez.</h2>
+      <p class="reveal d2">Vous démarrez avec l'essentiel pour être trouvé. Vous ajoutez la réputation, puis l'acquisition. Sans engagement, à chaque étape.</p>
+    </div>
+    <div class="tiers">
+      <div class="tier reveal">
+        <div class="tname">Présence</div>
+        <div class="tfor">Être enfin trouvé et appelé.</div>
+        <div class="price">89 €<small> / mois</small></div>
+        <div class="ttag">Sans engagement</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Site qui transforme le clic en appel</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Fiche Google Business optimisée</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Référencement local (métier + ville)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Rappel d'appels manqués par SMS</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Point sur les résultats chaque mois</li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost">Être rappelé</a>
+      </div>
+      <div class="tier feat reveal d1">
+        <div class="tname">Croissance</div>
+        <div class="tfor">Soigner votre réputation et votre image.</div>
+        <div class="price">199 €<small> / mois</small></div>
+        <div class="ttag">Sans engagement</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Tout l'offre Présence</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Gestion de vos avis Google</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Sollicitation d'avis après chaque chantier</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Réseaux sociaux gérés pour vous</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Vos photos de chantiers via WhatsApp</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">Être rappelé</a>
+      </div>
+      <div class="tier reveal d2">
+        <div class="tname">Performance</div>
+        <div class="tfor">Aller chercher la demande.</div>
+        <div class="price">349 €<small> / mois</small></div>
+        <div class="ttag">Sans engagement</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Tout l'offre Croissance</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Publicité locale Google & Meta</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Campagnes de génération de demandes</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Suivi et optimisation des campagnes</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Interlocuteur dédié</li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost">Être rappelé</a>
+      </div>
+    </div>
+    <p class="offers-note reveal"><b>Installation offerte ce mois-ci.</b> Le budget publicitaire de la formule Performance est en plus, et défini avec vous.</p>
+  </div>
+</section>
+
+<!-- RECRUITMENT -->
+<section class="section" id="recrutement">
+  <div class="container">
+    <div class="recruit reveal">
+      <div class="inner">
+        <span class="eyebrow light">En option, sur toutes les formules</span>
+        <h2>Vous n'arrivez pas à recruter ? C'est là qu'on change tout.</h2>
+        <p>Un couvreur, un plombier, un maçon introuvable. Chaque semaine sans lui, c'est un chantier refusé et du chiffre qui part. C'est aujourd'hui la première galère des patrons artisans. On diffuse et on pilote vos campagnes de recrutement là où sont vraiment les candidats. Vous recevez des candidatures, vous choisissez. On s'occupe de tout le reste.</p>
+        <a href="#contact" class="btn btn-primary">Recruter avec Premier Local
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="badge">
+        <div class="big">1 poste</div>
+        <p>non pourvu, c'est du chiffre perdu chaque semaine. On vous trouve le bon profil.</p>
+        <div class="chans"><span>Google</span><span>Facebook</span><span>Instagram</span><span>Ciblage local</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METHODE -->
+<section class="section soft" id="methode">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow reveal" style="justify-content:center">Comment ça marche</span>
+      <h2 class="reveal d1">Simple, et piloté de bout en bout</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <h3>On fait le point sur votre visibilité</h3>
+        <p>Un échange court et un état des lieux clair : où vous en êtes sur Google, et tout ce qu'il y a à gagner.</p>
+      </div>
+      <div class="step reveal d1">
+        <h3>On met tout en route</h3>
+        <p>Site, fiche Google, avis, suivi des appels. On installe et on connecte tout. Vous ne touchez à rien.</p>
+      </div>
+      <div class="step reveal d2">
+        <h3>Votre téléphone sonne</h3>
+        <p>Et chaque mois, on fait le point ensemble, chiffres en main, sur ce que ça vous a rapporté.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="container stats-grid">
+    <div class="stat reveal"><div class="num">+38 %</div><div class="lbl">d'appels en moyenne en 3 mois</div></div>
+    <div class="stat reveal d1"><div class="num">4,2 → 4,8</div><div class="lbl">note Google moyenne de nos clients</div></div>
+    <div class="stat reveal d2"><div class="num">0</div><div class="lbl">engagement. Vous partez quand vous voulez</div></div>
+  </div>
+</section>
+
+<!-- AVIS (carousel) -->
+<section class="section" id="avis">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow reveal" style="justify-content:center">Avis Google</span>
+      <h2 class="reveal d1">Des artisans de tous les métiers, des résultats concrets</h2>
+    </div>
+  </div>
+  <div class="rev-marquee reveal d1">
+    <div class="rev-track">
+      <div class="gcard"><div class="top"><span class="gi"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#0F9D58">l</span><span style="color:#EA4335">e</span></span><span class="stars">★★★★★</span></div><p>« Première page Google en deux mois. Le téléphone n'arrête plus de sonner. »</p><div class="who"><span class="av">J</span><div><b>Julien R.</b><small>Plombier · Rennes</small></div></div></div>
+      <div class="gcard"><div class="top"><span class="gi"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#0F9D58">l</span><span style="color:#EA4335">e</span></span><span class="stars">★★★★★</span></div><p>« Mes avis sont passés de 12 à plus de 80. Ça change tout pour la confiance des clients. »</p><div class="who"><span class="av">K</span><div><b>Karim B.</b><small>Couvreur · Angers</small></div></div></div>
+      <div class="gcard"><div class="top"><span class="gi"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#0F9D58">l</span><span style="color:#EA4335">e</span></span><span class="stars">★★★★★</span></div><p>« Les photos de chantiers postées chaque semaine me ramènent des devis. Je n'ai rien à faire. »</p><div class="who"><span class="av">S</span><div><b>Sophie D.</b><small>Paysagiste · Nantes</small></div></div></div>
+      <div class="gcard"><div class="top"><span class="gi"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#0F9D58">l</span><span style="color:#EA4335">e</span></span><span class="stars">★★★★★</span></div><p>« On me trouve enfin quand on tape électricien dans ma ville. Résultat immédiat. »</p><div class="who"><span class="av">M</span><div><b>Marc L.</b><small>Électricien · Vannes</small></div></div></div>
+      <div class="gcard"><div class="top"><span class="gi"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#0F9D58">l</span><span style="color:#EA4335">e</span></span><span class="stars">★★★★★</span></div><p>« Sérieux, réactifs, et un point clair chaque mois. Je sais exactement ce que je paye. »</p><div class="who"><span class="av">A</span><div><b>Antoine P.</b><small>Maçon · Laval</small></div></div></div>
+      <!-- duplicate -->
+      <div class="gcard"><div class="top"><span class="gi"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#0F9D58">l</span><span style="color:#EA4335">e</span></span><span class="stars">★★★★★</span></div><p>« Première page Google en deux mois. Le téléphone n'arrête plus de sonner. »</p><div class="who"><span class="av">J</span><div><b>Julien R.</b><small>Plombier · Rennes</small></div></div></div>
+      <div class="gcard"><div class="top"><span class="gi"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#0F9D58">l</span><span style="color:#EA4335">e</span></span><span class="stars">★★★★★</span></div><p>« Mes avis sont passés de 12 à plus de 80. Ça change tout pour la confiance des clients. »</p><div class="who"><span class="av">K</span><div><b>Karim B.</b><small>Couvreur · Angers</small></div></div></div>
+      <div class="gcard"><div class="top"><span class="gi"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#0F9D58">l</span><span style="color:#EA4335">e</span></span><span class="stars">★★★★★</span></div><p>« Les photos de chantiers postées chaque semaine me ramènent des devis. Je n'ai rien à faire. »</p><div class="who"><span class="av">S</span><div><b>Sophie D.</b><small>Paysagiste · Nantes</small></div></div></div>
+      <div class="gcard"><div class="top"><span class="gi"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#0F9D58">l</span><span style="color:#EA4335">e</span></span><span class="stars">★★★★★</span></div><p>« On me trouve enfin quand on tape électricien dans ma ville. Résultat immédiat. »</p><div class="who"><span class="av">M</span><div><b>Marc L.</b><small>Électricien · Vannes</small></div></div></div>
+      <div class="gcard"><div class="top"><span class="gi"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#0F9D58">l</span><span style="color:#EA4335">e</span></span><span class="stars">★★★★★</span></div><p>« Sérieux, réactifs, et un point clair chaque mois. Je sais exactement ce que je paye. »</p><div class="who"><span class="av">A</span><div><b>Antoine P.</b><small>Maçon · Laval</small></div></div></div>
+    </div>
+    <div class="rev-track rev2">
+      <div class="gcard"><div class="top"><span class="gi"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#0F9D58">l</span><span style="color:#EA4335">e</span></span><span class="stars">★★★★★</span></div><p>« Je ne m'occupe de rien, j'envoie mes photos par WhatsApp et tout est publié. »</p><div class="who"><span class="av">H</span><div><b>Hugo M.</b><small>Carreleur · Saint-Malo</small></div></div></div>
+      <div class="gcard"><div class="top"><span class="gi"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#0F9D58">l</span><span style="color:#EA4335">e</span></span><span class="stars">★★★★★</span></div><p>« Plus de demandes de devis qualifiées qu'avec mon ancienne agence, pour moins cher. »</p><div class="who"><span class="av">P</span><div><b>Pascal G.</b><small>Chauffagiste · Le Mans</small></div></div></div>
+      <div class="gcard"><div class="top"><span class="gi"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#0F9D58">l</span><span style="color:#EA4335">e</span></span><span class="stars">★★★★★</span></div><p>« Ma fiche Google est enfin au top, et ça se voit directement sur le chiffre d'affaires. »</p><div class="who"><span class="av">D</span><div><b>David F.</b><small>Menuisier · Quimper</small></div></div></div>
+      <div class="gcard"><div class="top"><span class="gi"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#0F9D58">l</span><span style="color:#EA4335">e</span></span><span class="stars">★★★★★</span></div><p>« Simple, efficace, et sans engagement. Exactement ce que je cherchais. »</p><div class="who"><span class="av">N</span><div><b>Nicolas T.</b><small>Peintre · Brest</small></div></div></div>
+      <div class="gcard"><div class="top"><span class="gi"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#0F9D58">l</span><span style="color:#EA4335">e</span></span><span class="stars">★★★★★</span></div><p>« Les avis arrivent tout seuls après chaque pose. Le recrutement aussi a porté ses fruits. »</p><div class="who"><span class="av">E</span><div><b>Émilie R.</b><small>Cuisiniste · Lorient</small></div></div></div>
+      <!-- duplicate -->
+      <div class="gcard"><div class="top"><span class="gi"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#0F9D58">l</span><span style="color:#EA4335">e</span></span><span class="stars">★★★★★</span></div><p>« Je ne m'occupe de rien, j'envoie mes photos par WhatsApp et tout est publié. »</p><div class="who"><span class="av">H</span><div><b>Hugo M.</b><small>Carreleur · Saint-Malo</small></div></div></div>
+      <div class="gcard"><div class="top"><span class="gi"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#0F9D58">l</span><span style="color:#EA4335">e</span></span><span class="stars">★★★★★</span></div><p>« Plus de demandes de devis qualifiées qu'avec mon ancienne agence, pour moins cher. »</p><div class="who"><span class="av">P</span><div><b>Pascal G.</b><small>Chauffagiste · Le Mans</small></div></div></div>
+      <div class="gcard"><div class="top"><span class="gi"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#0F9D58">l</span><span style="color:#EA4335">e</span></span><span class="stars">★★★★★</span></div><p>« Ma fiche Google est enfin au top, et ça se voit directement sur le chiffre d'affaires. »</p><div class="who"><span class="av">D</span><div><b>David F.</b><small>Menuisier · Quimper</small></div></div></div>
+      <div class="gcard"><div class="top"><span class="gi"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#0F9D58">l</span><span style="color:#EA4335">e</span></span><span class="stars">★★★★★</span></div><p>« Simple, efficace, et sans engagement. Exactement ce que je cherchais. »</p><div class="who"><span class="av">N</span><div><b>Nicolas T.</b><small>Peintre · Brest</small></div></div></div>
+      <div class="gcard"><div class="top"><span class="gi"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#0F9D58">l</span><span style="color:#EA4335">e</span></span><span class="stars">★★★★★</span></div><p>« Les avis arrivent tout seuls après chaque pose. Le recrutement aussi a porté ses fruits. »</p><div class="who"><span class="av">E</span><div><b>Émilie R.</b><small>Cuisiniste · Lorient</small></div></div></div>
+    </div>
+  </div>
+  <div class="container"><p class="offers-note reveal" style="margin-top:30px">Avis d'illustration, à remplacer par vos premiers clients réels.</p></div>
+</section>
+
+<!-- COMPARE -->
+<section class="section cream">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow reveal" style="justify-content:center">La différence</span>
+      <h2 class="reveal d1">Premier Local face à une agence classique</h2>
+    </div>
+    <div class="compare reveal d1">
+      <div class="compare-row compare-head"><div>&nbsp;</div><div class="us">Premier Local</div><div>Agence classique</div></div>
+      <div class="compare-row"><div class="lbl">Engagement</div><div class="us yes">Aucun ✓</div><div class="them">48 mois</div></div>
+      <div class="compare-row"><div class="lbl">Spécialisation</div><div class="us">100 % artisans</div><div class="them">Généraliste</div></div>
+      <div class="compare-row"><div class="lbl">Avis Google</div><div class="us">Gérés en continu</div><div class="them">Figés, voire faux</div></div>
+      <div class="compare-row"><div class="lbl">Réseaux sociaux</div><div class="us yes">Gérés pour vous ✓</div><div class="them no">Non</div></div>
+      <div class="compare-row"><div class="lbl">Recrutement</div><div class="us yes">En option ✓</div><div class="them no">Non</div></div>
+      <div class="compare-row"><div class="lbl">Point sur les résultats</div><div class="us">Chaque mois</div><div class="them no">Aucun</div></div>
+      <div class="compare-row"><div class="lbl">À partir de</div><div class="us">89 € / mois</div><div class="them">150 € / mois</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow reveal" style="justify-content:center">Vos questions</span>
+      <h2 class="reveal d1">Tout est clair, dès le départ</h2>
+    </div>
+    <div class="faq reveal d1">
+      <details><summary>Je suis vraiment sans engagement ?</summary><p>Oui. Vous payez au mois et vous arrêtez quand vous voulez. Pas de contrat de quatre ans qui vous tient.</p></details>
+      <details><summary>Pourquoi vous plutôt qu'une agence web classique ?</summary><p>Parce qu'on ne fait que ça : le référencement des artisans du bâtiment. On connaît vos métiers, vos clients et vos villes. C'est notre seule spécialité, et on est les meilleurs de France pour ça.</p></details>
+      <details><summary>J'ai déjà une agence ou un site, comment on fait ?</summary><p>On gère toute la transition, sans coupure. Vous n'avez rien à organiser, on s'occupe de la bascule de A à Z.</p></details>
+      <details><summary>Combien de temps avant des résultats ?</summary><p>La fiche Google et les avis bougent en quelques semaines. Le référencement local se construit sur 2 à 3 mois. On vous montre la progression chaque mois.</p></details>
+      <details><summary>Ça va me prendre du temps ?</summary><p>Non, on gère tout. Pour les réseaux, vous envoyez simplement quelques photos par semaine sur WhatsApp, on s'occupe du reste.</p></details>
+      <details><summary>Vous garantissez des appels ?</summary><p>On garantit le travail et la transparence totale, pas un chiffre magique. Et on vous prouve les résultats noir sur blanc, à chaque point mensuel.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section final" id="contact">
+  <div class="container inner">
+    <span class="eyebrow light reveal" style="justify-content:center">Sans engagement, évidemment</span>
+    <h2 class="reveal d1">Prêt à passer devant vos concurrents ?</h2>
+    <p class="reveal d2">Laissez vos coordonnées. On vous rappelle sous 24h avec un premier état des lieux de votre visibilité locale.</p>
+    <form class="cta-form reveal d2" id="devisForm" novalidate>
+      <input type="text" placeholder="Prénom" required />
+      <input type="text" placeholder="Votre métier" required />
+      <input type="text" placeholder="Ville" required />
+      <input type="tel" placeholder="Téléphone" required />
+      <button type="submit" class="btn btn-primary">Être rappelé</button>
+    </form>
+    <div class="form-msg" id="formMsg">✓ Merci ! On vous rappelle très vite.</div>
+    <small class="note">Sans engagement. Un échange concret, pas un argumentaire de vente.</small>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <b>Premier Local</b>
+        </div>
+        <p>Le n°1 français du référencement pour les artisans du bâtiment. Une seule mission : faire sonner votre téléphone.</p>
+      </div>
+      <div>
+        <h4>Offres</h4>
+        <ul>
+          <li><a href="#offres">Présence</a></li>
+          <li><a href="#offres">Croissance</a></li>
+          <li><a href="#offres">Performance</a></li>
+          <li><a href="#recrutement">Recrutement</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>En savoir plus</h4>
+        <ul>
+          <li><a href="#methode">Comment ça marche</a></li>
+          <li><a href="#avis">Avis</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Être rappelé</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="#contact">Être rappelé sous 24h</a></li>
+          <li><a href="#top">premierlocal.fr</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Premier Local. Tous droits réservés.</span>
+      <span class="sig">Premier sur Google. Premier appelé.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const header=document.getElementById('header');
+addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>30));
+
+const burger=document.getElementById('burger'),mm=document.getElementById('mobileMenu'),mc=document.getElementById('mclose');
+const toggleM=o=>mm.classList.toggle('open',o);
+burger.onclick=()=>toggleM(true);
+mc.onclick=()=>toggleM(false);
+mm.querySelectorAll('a').forEach(a=>a.onclick=()=>toggleM(false));
+
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+  });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+const form=document.getElementById('devisForm'),fmsg=document.getElementById('formMsg');
+form.onsubmit=e=>{
+  e.preventDefault();
+  if(!form.checkValidity()){ form.reportValidity(); return; }
+  fmsg.classList.add('show');
+  form.reset();
+  setTimeout(()=>fmsg.classList.remove('show'),6000);
+};
+</script>
+</body>
+</html>

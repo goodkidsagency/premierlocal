@@ -1,0 +1,44 @@
+MODELE D'AUDIT MANUEL - Premier Local
+=====================================
+
+Pour une entreprise que l'outil automatique n'a pas trouvee :
+
+ETAPE 1 - Trouver les chiffres sur Google Maps (30 sec)
+-------------------------------------------------------
+a) Cherche l'entreprise sur Google Maps -> note la NOTE (ex 4,1) et le NOMBRE D'AVIS (ex 12).
+b) Cherche "[metier] [ville]" (ex "plombier Vannes") -> prends les 2 premieres entreprises
+   du pack Maps (les concurrents) et note leur NOTE + NOMBRE D'AVIS.
+
+ETAPE 2 - Estimer le score et les clients manques
+-------------------------------------------------
+SCORE (sur 100), regle simple :
+  - moins de 10 avis OU note < 4,2  -> 25 a 35
+  - 10 a 30 avis                    -> 40 a 55
+  - plus de 30 avis + bonne note    -> 60 a 75
+MANQUES (clients/mois) = (100 - score) / 7, arrondi. (ex score 35 -> 9)
+POS (position) : mets un nombre entre 6 et 12 (plus le concurrent a d'avis, plus haut).
+
+ETAPE 3 - Creer la page
+-----------------------
+1. Duplique le dossier "_modele", renomme-le avec un slug simple
+   (ex le nom de domaine sans extension : "plomb-fm").
+2. Ouvre le fichier index.html avec un editeur de texte (TextEdit en mode "texte brut", ou VS Code).
+3. Fais Rechercher/Remplacer (Cmd+F) pour chaque etiquette ci-dessous :
+
+   [[NOM]]          -> nom de l'entreprise (ex: Plomb FM)
+   [[VILLE]]        -> ville (ex: Dinard)
+   [[METIER]]       -> metier en minuscule (ex: plombier, chauffagiste, couvreur)
+   [[SCORE]]        -> le score (ex: 32)   (apparait 2x : la jauge se remplit toute seule)
+   [[MANQUES]]      -> clients manques/mois (ex: 10)
+   [[VOS_AVIS]]     -> son nombre d'avis (ex: 9)
+   [[VOTRE_NOTE]]   -> sa note (ex: 4,1)
+   [[CONC1_AVIS]]   -> avis du concurrent 1 (ex: 110)
+   [[CONC1_NOTE]]   -> note du concurrent 1 (ex: 4,8)
+   [[CONC2_AVIS]]   -> avis du concurrent 2 (ex: 64)
+   [[CONC2_NOTE]]   -> note du concurrent 2 (ex: 4,7)
+   [[POS]]          -> position estimee (ex: 9)
+
+4. Enregistre. Mets le dossier en ligne (ou envoie-le moi, je le pousse).
+   La page sera sur : premierlocal.fr/audit/<slug>/
+
+Astuce : le bouton WhatsApp et l'appel pointent deja vers le numero de Nicolas.

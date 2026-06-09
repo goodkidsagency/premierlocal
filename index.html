@@ -586,7 +586,7 @@ img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
       <h2 class="reveal d1">Tout est clair, dès le départ</h2>
     </div>
     <div class="faq reveal d1">
-      <details><summary>Je suis vraiment sans engagement ?</summary><p>Oui. Vous payez au mois et vous arrêtez quand vous voulez. Pas de contrat de quatre ans qui vous tient.</p></details>
+      <details><summary>Je suis vraiment sans engagement ?</summary><p>Oui. Vous payez au mois et vous arrêtez quand vous voulez.</p></details>
       <details><summary>Pourquoi vous plutôt qu'une agence web classique ?</summary><p>Parce qu'on ne fait que ça : le référencement des artisans du bâtiment. On connaît vos métiers, vos clients et vos villes. C'est notre seule spécialité, et on est les meilleurs de France pour ça.</p></details>
       <details><summary>J'ai déjà une agence ou un site, comment on fait ?</summary><p>On gère toute la transition, sans coupure. Vous n'avez rien à organiser, on s'occupe de la bascule de A à Z.</p></details>
       <details><summary>Combien de temps avant des résultats ?</summary><p>La fiche Google et les avis bougent en quelques semaines. Le référencement local se construit sur 2 à 3 mois. On vous montre la progression chaque mois.</p></details>
@@ -603,10 +603,14 @@ img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
     <h2 class="reveal d1">Prêt à passer devant vos concurrents ?</h2>
     <p class="reveal d2">Laissez vos coordonnées. On vous rappelle sous 24h avec un premier état des lieux de votre visibilité locale.</p>
     <form class="cta-form reveal d2" id="devisForm" novalidate>
-      <input type="text" placeholder="Prénom" required />
-      <input type="text" placeholder="Votre métier" required />
-      <input type="text" placeholder="Ville" required />
-      <input type="tel" placeholder="Téléphone" required />
+      <input type="hidden" name="access_key" value="REMPLACER_PAR_VOTRE_CLE_WEB3FORMS" />
+      <input type="hidden" name="subject" value="Nouvelle demande de rappel - Premier Local" />
+      <input type="hidden" name="from_name" value="Site Premier Local" />
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+      <input type="text" name="Prénom" placeholder="Prénom" required />
+      <input type="text" name="Métier" placeholder="Votre métier" required />
+      <input type="text" name="Ville" placeholder="Ville" required />
+      <input type="tel" name="Téléphone" placeholder="Téléphone" required />
       <button type="submit" class="btn btn-primary">Être rappelé</button>
     </form>
     <div class="form-msg" id="formMsg">✓ Merci ! On vous rappelle très vite.</div>
@@ -676,12 +680,39 @@ const io=new IntersectionObserver((entries)=>{
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
 const form=document.getElementById('devisForm'),fmsg=document.getElementById('formMsg');
-form.onsubmit=e=>{
+form.onsubmit=async e=>{
   e.preventDefault();
   if(!form.checkValidity()){ form.reportValidity(); return; }
-  fmsg.classList.add('show');
-  form.reset();
-  setTimeout(()=>fmsg.classList.remove('show'),6000);
+  const btn=form.querySelector('button[type="submit"]');
+  const label=btn.textContent;
+  btn.textContent='Envoi...';
+  btn.disabled=true;
+  try{
+    const res=await fetch('https://api.web3forms.com/submit',{
+      method:'POST',
+      headers:{'Accept':'application/json'},
+      body:new FormData(form)
+    });
+    const data=await res.json();
+    if(data.success){
+      fmsg.textContent='✓ Merci ! On vous rappelle très vite.';
+      fmsg.style.color='';
+      fmsg.classList.add('show');
+      form.reset();
+      setTimeout(()=>fmsg.classList.remove('show'),7000);
+    }else{
+      fmsg.textContent="Une erreur est survenue. Réessayez ou appelez-nous.";
+      fmsg.style.color='#ff9a9a';
+      fmsg.classList.add('show');
+    }
+  }catch(err){
+    fmsg.textContent="Erreur réseau. Réessayez dans un instant.";
+    fmsg.style.color='#ff9a9a';
+    fmsg.classList.add('show');
+  }finally{
+    btn.textContent=label;
+    btn.disabled=false;
+  }
 };
 </script>
 </body>

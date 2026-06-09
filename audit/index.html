@@ -3,13 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Votre audit de visibilité · Premier Local</title>
+<title>Votre audit · Premier Local</title>
 <meta name="robots" content="noindex" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
 <style>
-/* ===== Tokens Premier Local ===== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --ink:#091622;--navy:#0c2031;--navy-2:#123249;--muted:#5d7385;--line:#e6ecf1;
@@ -17,60 +16,47 @@
   --green:#16a34a;--red:#e0524a;
   --gold-grad:linear-gradient(135deg,#f6c053,#e29318);
   --navy-grad:linear-gradient(150deg,#0c2031,#15405f);
-  --shadow-s:0 2px 10px rgba(9,22,34,.06);--shadow-m:0 16px 44px -14px rgba(9,22,34,.22);
   --r:18px;--ease:cubic-bezier(.22,.61,.36,1);
 }
 body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background:var(--soft);line-height:1.6;-webkit-font-smoothing:antialiased}
 h1,h2,h3{font-family:'Sora',sans-serif;line-height:1.12;letter-spacing:-.02em}
 .wrap{max-width:600px;margin:0 auto;background:var(--bg);min-height:100vh;box-shadow:0 0 60px rgba(9,22,34,.08)}
 .pad{padding:26px 22px}
-.gold-text{background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-
-/* top bar */
 .bar{display:flex;align-items:center;gap:10px;padding:16px 22px;border-bottom:1px solid var(--line)}
-.bar .mark{width:34px;height:34px;border-radius:9px;background:var(--navy-grad);display:grid;place-items:center;flex:none;position:relative}
+.bar .mark{width:34px;height:34px;border-radius:9px;background:var(--navy-grad);display:grid;place-items:center;flex:none}
 .bar .mark svg{width:18px;height:18px;color:var(--gold)}
 .bar b{font-family:'Sora';font-weight:800;font-size:.98rem}
 .bar small{display:block;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
 
 /* hero */
-.hero{background:var(--navy-grad);color:#fff;position:relative;overflow:hidden;text-align:center;padding:34px 22px 30px}
-.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(500px 240px at 80% -10%,rgba(240,177,60,.25),transparent 60%)}
+.hero{background:var(--navy-grad);color:#fff;position:relative;overflow:hidden;text-align:center;padding:34px 22px 32px}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(500px 240px at 80% -10%,rgba(240,177,60,.22),transparent 60%)}
 .hero .inner{position:relative}
 .hero .ey{font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
-.hero h1{color:#fff;font-size:1.65rem;margin:10px 0 6px}
-.hero p{color:#aebecb;font-size:.95rem}
+.hero h1{color:#fff;font-size:1.5rem;margin:8px 0 14px}
+.hero .punch{color:#fff;font-size:1.15rem;font-family:'Sora';font-weight:700;max-width:24ch;margin:0 auto}
+.bignum{margin:20px auto 8px}
+.bignum .k{font-family:'Sora';font-weight:800;font-size:4.6rem;line-height:.9;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.bignum .u{font-family:'Sora';font-weight:700;font-size:1.05rem;color:#fff;margin-top:2px}
+.hero .sub2{color:#aebecb;font-size:.92rem;max-width:30ch;margin:10px auto 0}
+.scorechip{display:inline-flex;align-items:center;gap:8px;margin-top:18px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:100px;padding:7px 14px;font-size:.8rem;font-weight:600;color:#cdd9e2}
+.scorechip b{color:var(--gold);font-family:'Sora'}
 
-/* gauge */
-.gauge{position:relative;width:184px;height:184px;margin:22px auto 6px}
-.gauge svg{transform:rotate(-90deg)}
-.gauge .val{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
-.gauge .val b{font-family:'Sora';font-size:2.8rem;line-height:1;color:#fff}
-.gauge .val span{font-size:.78rem;color:#aebecb;font-weight:600}
-.gauge-label{display:inline-block;margin-top:4px;font-weight:700;font-size:.82rem;color:#3a2400;background:var(--gold-grad);padding:5px 14px;border-radius:100px}
-
-/* sections */
 .sec{border-bottom:1px solid var(--line)}
 .sec h2{font-size:1.18rem;margin-bottom:4px;display:flex;align-items:center;gap:9px}
 .sec h2 .n{width:26px;height:26px;border-radius:50%;background:var(--gold-grad);color:#3a2400;font-family:'Sora';font-size:.8rem;font-weight:800;display:grid;place-items:center;flex:none}
 .sec .lead{color:var(--muted);font-size:.9rem;margin-bottom:18px}
 
-/* compare bars */
 .cmp{display:flex;flex-direction:column;gap:14px}
-.cmprow{}
 .cmprow .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;font-size:.9rem}
 .cmprow .top b{font-family:'Sora'}
 .cmprow .top .stars{color:var(--gold);font-size:.82rem}
 .cmprow .track{height:14px;border-radius:100px;background:var(--soft);overflow:hidden}
 .cmprow .fill{height:100%;border-radius:100px}
 .cmprow.you .fill{background:var(--red)}
-.cmprow.you .num{color:var(--red);font-weight:800}
 .cmprow.rival .fill{background:linear-gradient(90deg,#9fb1bd,#6b7f8c)}
-.cmprow .num{font-weight:700}
 .cmpnote{margin-top:16px;background:#fdeceb;border:1px solid #f6cfcc;color:#b23b33;border-radius:12px;padding:13px 15px;font-size:.88rem;font-weight:600}
 
-/* rank mock */
-.rank{margin-top:4px}
 .rank .q{font-size:.84rem;color:var(--muted);margin-bottom:10px}
 .rank .q b{color:var(--ink)}
 .mrow{display:flex;align-items:center;gap:11px;padding:11px 13px;border-radius:12px;border:1px solid var(--line);margin-bottom:8px}
@@ -84,7 +70,6 @@ h1,h2,h3{font-family:'Sora',sans-serif;line-height:1.12;letter-spacing:-.02em}
 .mrow.you .nm b{color:var(--red)}
 .mrow.dots{justify-content:center;color:var(--muted);border-style:dashed;font-weight:700}
 
-/* diagnostic */
 .diag{display:flex;flex-direction:column;gap:10px}
 .ditem{display:flex;gap:12px;align-items:flex-start;background:var(--soft);border-radius:12px;padding:13px 15px}
 .ditem .ic{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;flex:none}
@@ -94,14 +79,12 @@ h1,h2,h3{font-family:'Sora',sans-serif;line-height:1.12;letter-spacing:-.02em}
 .ditem b{font-size:.92rem;display:block}
 .ditem span{font-size:.82rem;color:var(--muted)}
 
-/* potentiel */
 .pot{background:var(--cream)}
 .potgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
 .potcard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;text-align:center}
 .potcard .k{font-family:'Sora';font-weight:800;font-size:1.5rem;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
 .potcard .l{font-size:.78rem;color:var(--muted);font-weight:600;margin-top:6px}
 
-/* cta */
 .cta{background:var(--navy-grad);color:#fff;text-align:center;position:relative;overflow:hidden}
 .cta::before{content:"";position:absolute;inset:0;background:radial-gradient(420px 220px at 50% 0,rgba(240,177,60,.28),transparent 60%)}
 .cta .inner{position:relative;padding:36px 22px}
@@ -120,90 +103,85 @@ h1,h2,h3{font-family:'Sora',sans-serif;line-height:1.12;letter-spacing:-.02em}
 <body>
 <div class="wrap">
 
-  <!-- Barre marque -->
   <div class="bar">
     <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-    <span><b>Premier Local</b><small>Audit de visibilité</small></span>
+    <span><b>Premier Local</b><small>Votre état des lieux</small></span>
   </div>
 
-  <!-- HERO + SCORE -->
+  <!-- HERO : impact business -->
   <section class="hero">
     <div class="inner">
-      <div class="ey">Audit préparé pour</div>
-      <h1>Plomberie Martin · Rennes</h1>
-      <p>Voici où vous en êtes sur Google aujourd'hui.</p>
-      <div class="gauge">
-        <svg width="184" height="184" viewBox="0 0 184 184">
-          <circle cx="92" cy="92" r="80" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="14"/>
-          <circle cx="92" cy="92" r="80" fill="none" stroke="url(#g)" stroke-width="14" stroke-linecap="round"
-            stroke-dasharray="502" stroke-dashoffset="296"/>
-          <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6c053"/><stop offset="1" stop-color="#e29318"/></linearGradient></defs>
-        </svg>
-        <div class="val"><b>41</b><span>/ 100</span></div>
+      <div class="ey">Préparé pour</div>
+      <h1>Plomberie Le Toquin · Rennes</h1>
+      <p class="punch">Chaque mois, des clients vous passent sous le nez.</p>
+      <div class="bignum">
+        <div class="k">≈ 11</div>
+        <div class="u">clients / mois</div>
       </div>
-      <div class="gauge-label">Beaucoup de potentiel inexploité</div>
+      <p class="sub2">que vous ne voyez jamais : ils appellent un autre plombier avant d'arriver jusqu'à vous.</p>
+      <div class="scorechip">Visibilité sur Google : <b>41 / 100</b></div>
     </div>
   </section>
 
-  <!-- 1. AVIS -->
+  <!-- 1. POURQUOI ILS CHOISISSENT UN AUTRE -->
   <section class="sec pad">
-    <h2><span class="n">1</span> Vos avis Google</h2>
-    <p class="lead">La confiance se joue ici. Et c'est le 1er critère pour remonter dans Google Maps.</p>
+    <h2><span class="n">1</span> Pourquoi ils choisissent un autre</h2>
+    <p class="lead">Avant d'appeler, les gens regardent les avis. Et ils prennent celui qui en a le plus.</p>
     <div class="cmp">
       <div class="cmprow you">
-        <div class="top"><b>Vous</b><span class="stars">★★★★☆ <span class="num">4,2</span></span></div>
+        <div class="top"><b>Vous</b><span class="stars">★★★★☆ 4,2</span></div>
         <div class="track"><div class="fill" style="width:12%"></div></div>
         <div style="font-size:.8rem;color:var(--red);font-weight:700;margin-top:4px">16 avis</div>
       </div>
       <div class="cmprow rival">
-        <div class="top"><b>Concurrent n°1</b><span class="stars">★★★★★ <span class="num">4,8</span></span></div>
+        <div class="top"><b>Le concurrent d'à côté</b><span class="stars">★★★★★ 4,8</span></div>
         <div class="track"><div class="fill" style="width:100%"></div></div>
         <div style="font-size:.8rem;color:var(--muted);font-weight:700;margin-top:4px">134 avis</div>
       </div>
       <div class="cmprow rival">
-        <div class="top"><b>Concurrent n°2</b><span class="stars">★★★★★ <span class="num">4,7</span></span></div>
+        <div class="top"><b>Un autre plombier du secteur</b><span class="stars">★★★★★ 4,7</span></div>
         <div class="track"><div class="fill" style="width:69%"></div></div>
         <div style="font-size:.8rem;color:var(--muted);font-weight:700;margin-top:4px">92 avis</div>
       </div>
     </div>
-    <div class="cmpnote">⚠️ Vos concurrents ont jusqu'à <b>8 fois plus d'avis</b> que vous. À résultat de travail égal, c'est eux qu'on appelle.</div>
+    <div class="cmpnote">⚠️ Vous faites le même travail, voire mieux. Mais avec <b>8 fois moins d'avis</b>, c'est lui qu'on appelle.</div>
   </section>
 
-  <!-- 2. POSITION -->
+  <!-- 2. OÙ PASSENT VOS CLIENTS -->
   <section class="sec pad">
-    <h2><span class="n">2</span> Votre position sur Google</h2>
+    <h2><span class="n">2</span> Où passent vos clients</h2>
     <div class="rank">
-      <div class="q">Quand un habitant tape <b>« plombier Rennes »</b> :</div>
-      <div class="mrow"><div class="pos">1</div><div class="pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div class="nm"><b>Concurrent n°1</b><div class="st">★ 4,8 · 134 avis</div></div></div>
-      <div class="mrow"><div class="pos">2</div><div class="pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div class="nm"><b>Concurrent n°2</b><div class="st">★ 4,7 · 92 avis</div></div></div>
+      <div class="q">Quand un habitant cherche un <b>plombier vers Rennes</b>, voilà qui il voit en premier :</div>
+      <div class="mrow"><div class="pos">1</div><div class="pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div class="nm"><b>Le concurrent d'à côté</b><div class="st">★ 4,8 · 134 avis · appelé en premier</div></div></div>
+      <div class="mrow"><div class="pos">2</div><div class="pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div class="nm"><b>Un autre plombier</b><div class="st">★ 4,7 · 92 avis</div></div></div>
       <div class="mrow dots">• • •</div>
-      <div class="mrow you"><div class="pos">9</div><div class="pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div class="nm"><b>Vous (Plomberie Martin)</b><div class="st">Hors du top 3 local · invisible sans scroller</div></div></div>
+      <div class="mrow you"><div class="pos">9</div><div class="pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div class="nm"><b>Vous (Plomberie Le Toquin)</b><div class="st">Tout en bas · personne ne descend jusque-là</div></div></div>
     </div>
-    <div class="cmpnote">📍 <b>7 personnes sur 10</b> appellent un artisan du top 3 de Google Maps. En position 9, vous passez à côté de l'essentiel des demandes.</div>
+    <div class="cmpnote">📍 <b>7 personnes sur 10</b> appellent un des 3 premiers. Tout en bas, vous ne recevez quasiment aucun de ces appels.</div>
   </section>
 
-  <!-- 3. DIAGNOSTIC -->
+  <!-- 3. CE QUI VOUS FREINE -->
   <section class="sec pad">
-    <h2><span class="n">3</span> Le diagnostic</h2>
-    <p class="lead">Ce qui vous freine, point par point.</p>
+    <h2><span class="n">3</span> Ce qui vous coûte ces clients</h2>
+    <p class="lead">Rien de grave. Juste des réglages que personne n'a faits pour vous.</p>
     <div class="diag">
-      <div class="ditem ko"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span><div><b>Fiche Google non optimisée</b><span>Catégories, photos et zone incomplètes.</span></div></div>
-      <div class="ditem ko"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span><div><b>Trop peu d'avis</b><span>Aucune collecte d'avis après vos chantiers.</span></div></div>
-      <div class="ditem ko"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span><div><b>Position faible en local</b><span>Absent du top 3 sur vos mots-clés.</span></div></div>
-      <div class="ditem ko"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span><div><b>Peu présent sur les réseaux</b><span>Vos chantiers ne sont pas mis en avant.</span></div></div>
-      <div class="ditem ok"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Une vraie activité, de vrais clients</b><span>La matière est là. Il manque la visibilité.</span></div></div>
+      <div class="ditem ko"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span><div><b>Votre fiche Google est incomplète</b><span>Du coup elle remonte mal et inspire moins confiance.</span></div></div>
+      <div class="ditem ko"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span><div><b>Vos clients contents ne laissent pas d'avis</b><span>Personne ne leur demande. Vos concurrents, si.</span></div></div>
+      <div class="ditem ko"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span><div><b>On ne vous trouve pas en premier</b><span>Quand quelqu'un cherche près de chez vous, c'est un autre qui sort.</span></div></div>
+      <div class="ditem ko"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span><div><b>Vos beaux chantiers ne se voient nulle part</b><span>Aucune preuve de votre travail en ligne.</span></div></div>
+      <div class="ditem ok"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Vous avez déjà tout ce qu'il faut</b><span>Un vrai métier, de vrais clients. Il manque juste à le faire savoir.</span></div></div>
     </div>
   </section>
 
-  <!-- 4. POTENTIEL -->
+  <!-- 4. CE QUE ÇA VOUS RAPPORTERAIT -->
   <section class="sec pad pot">
-    <h2><span class="n">4</span> Votre potentiel en 90 jours</h2>
-    <p class="lead">Avec une fiche optimisée et les avis qui rentrent en automatique.</p>
+    <h2><span class="n">4</span> Ce que ça vous rapporterait</h2>
+    <p class="lead">En 90 jours, avec une fiche au point et les avis qui rentrent tout seuls.</p>
     <div class="potgrid">
-      <div class="potcard"><div class="k">Top 3</div><div class="l">sur « plombier Rennes »</div></div>
-      <div class="potcard"><div class="k">+60</div><div class="l">avis Google estimés</div></div>
+      <div class="potcard"><div class="k">+10</div><div class="l">clients par mois</div></div>
       <div class="potcard"><div class="k">x2</div><div class="l">demandes de devis</div></div>
-      <div class="potcard"><div class="k">4,2 → 4,8</div><div class="l">note moyenne visée</div></div>
+      <div class="potcard"><div class="k">1ᵉʳ</div><div class="l">quand on cherche un plombier</div></div>
+      <div class="potcard"><div class="k">+60</div><div class="l">avis qui rassurent</div></div>
     </div>
   </section>
 
@@ -211,18 +189,18 @@ h1,h2,h3{font-family:'Sora',sans-serif;line-height:1.12;letter-spacing:-.02em}
   <section class="cta">
     <div class="inner">
       <span class="tag">SANS ENGAGEMENT</span>
-      <h2>On en parle 15 minutes ?</h2>
-      <p>Je vous explique exactement comment passer en tête, et ce que ça donnerait pour vous. Gratuit, sans engagement.</p>
+      <h2>On récupère ces clients ensemble ?</h2>
+      <p>15 minutes pour vous expliquer comment, et ce que ça donnerait concrètement pour vous. Gratuit, sans engagement.</p>
       <a href="#" class="btn btn-gold">Réserver mon créneau
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a href="tel:0000000000" class="btn btn-tel">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         Nous appeler</a>
-      <small>Premier Local · Le n°1 du référencement pour les artisans</small>
+      <small>Premier Local · On rend les artisans premiers sur Google</small>
     </div>
   </section>
 
-  <div class="foot">Audit d'illustration (données d'exemple). Premier sur Google. Premier appelé.</div>
+  <div class="foot">État des lieux d'illustration (données d'exemple). Premier sur Google. Premier appelé.</div>
 </div>
 </body>
 </html>

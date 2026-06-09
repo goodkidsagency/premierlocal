@@ -39,8 +39,16 @@ h1,h2,h3{font-family:'Sora',sans-serif;line-height:1.12;letter-spacing:-.02em}
 .bignum .k{font-family:'Sora';font-weight:800;font-size:4.6rem;line-height:.9;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 .bignum .u{font-family:'Sora';font-weight:700;font-size:1.05rem;color:#fff;margin-top:2px}
 .hero .sub2{color:#aebecb;font-size:.92rem;max-width:30ch;margin:10px auto 0}
-.scorechip{display:inline-flex;align-items:center;gap:8px;margin-top:18px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:100px;padding:7px 14px;font-size:.8rem;font-weight:600;color:#cdd9e2}
-.scorechip b{color:var(--gold);font-family:'Sora'}
+/* mini-gauge visibilité */
+.scoresec{display:flex;align-items:center;gap:18px}
+.gaugewrap{position:relative;width:122px;height:122px;flex:none}
+.gaugewrap svg{transform:rotate(-90deg)}
+.gaugewrap .gval{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.gaugewrap .gval b{font-family:'Sora';font-size:1.9rem;line-height:1;color:var(--ink)}
+.gaugewrap .gval span{font-size:.66rem;color:var(--muted);font-weight:700}
+.scoretxt b{font-family:'Sora';font-size:1.04rem;display:block;margin-bottom:5px}
+.scoretxt p{color:var(--muted);font-size:.88rem}
+.scoretxt .pill{display:inline-block;margin-top:8px;font-size:.72rem;font-weight:700;color:#9a6a12;background:#fff3d6;border-radius:100px;padding:4px 11px}
 
 .sec{border-bottom:1px solid var(--line)}
 .sec h2{font-size:1.18rem;margin-bottom:4px;display:flex;align-items:center;gap:9px}
@@ -119,7 +127,23 @@ h1,h2,h3{font-family:'Sora',sans-serif;line-height:1.12;letter-spacing:-.02em}
         <div class="u">clients / mois</div>
       </div>
       <p class="sub2">que vous ne voyez jamais : ils appellent un autre plombier avant d'arriver jusqu'à vous.</p>
-      <div class="scorechip">Visibilité sur Google : <b>41 / 100</b></div>
+    </div>
+  </section>
+
+  <!-- Score de visibilité (la cause, en preuve) -->
+  <section class="sec pad scoresec">
+    <div class="gaugewrap">
+      <svg width="122" height="122" viewBox="0 0 122 122">
+        <circle cx="61" cy="61" r="54" fill="none" stroke="#eef2f5" stroke-width="11"/>
+        <circle cx="61" cy="61" r="54" fill="none" stroke="url(#gg)" stroke-width="11" stroke-linecap="round" stroke-dasharray="339" stroke-dashoffset="200"/>
+        <defs><linearGradient id="gg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6c053"/><stop offset="1" stop-color="#e29318"/></linearGradient></defs>
+      </svg>
+      <div class="gval"><b>41</b><span>/ 100</span></div>
+    </div>
+    <div class="scoretxt">
+      <b>Votre visibilité sur Google</b>
+      <p>C'est ce score faible qui vous fait passer à côté de clients chaque mois. La bonne nouvelle : il se redresse vite.</p>
+      <span class="pill">Beaucoup de potentiel inexploité</span>
     </div>
   </section>
 
